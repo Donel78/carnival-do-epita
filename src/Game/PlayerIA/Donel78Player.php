@@ -22,11 +22,11 @@ class Donel78Player extends Player
         $scissor = $stats["scissors"];
         $rock = $stats["rock"];
         if ($paper > $scissor && $paper > $rock)
-            return parent::scissorsChoice();
+            return parent::paperChoice();
         if ($scissor > $paper && $scissor > $rock)
             return parent::rockChoice();
         if ($rock > $scissor && $rock > $paper)
-            return parent::paperChoice();
+            return parent::scissorsChoice();
         return parent::paperChoice();
 
         // -------------------------------------    -----------------------------------------------------
