@@ -23,19 +23,13 @@ class Donel78Player extends Player
         $paper = $stats["paper"];
         $scissor = $stats["scissors"];
         $rock = $stats["rock"];
-        //if ($paper > $scissor && $paper > $rock)
-          //  return parent::paperChoice();
-        //if ($scissor > $paper && $scissor > $rock)
-          //  return parent::rockChoice();
-        //if ($rock > $scissor && $rock > $paper)
-            //return parent::scissorsChoice();
+        if ($paper > $scissor && $paper > $rock)
+          return parent::paperChoice();
+        if ($scissor > $paper && $scissor > $rock)
+          return parent::rockChoice();
+        if ($rock > $scissor && $rock > $paper)
+            return parent::scissorsChoice();
 
-        if ($this->result->getChoicesFor($this->opponentSide) == parent::rockChoice())
-            return $this->scissorsChoice();
-        if ($this->result->getChoicesFor($this->opponentSide) == parent::paperChoice())
-            return $this->rockChoice();
-        if ($this->result->getChoicesFor($this->opponentSide) == parent::scissorsChoice())
-            return $this->paperChoice();
         return parent::paperChoice();
 
         // -------------------------------------    -----------------------------------------------------
