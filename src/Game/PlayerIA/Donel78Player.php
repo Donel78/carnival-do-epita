@@ -21,9 +21,9 @@ class Donel78Player extends Player
             return parent::rockChoice();
         if ($this->result->getLastScoreFor($this->mySide) === 0)
             return parent::rockChoice();
-        if ($this->result->getChoicesFor($this->opponentSide) === "scissors")
+        if ($this->result->getChoicesFor($this->opponentSide) === parent::paperChoice())
             return parent::scissorsChoice();
-        if ($this->result->getChoicesFor($this->opponentSide) === "rock")
+        if ($this->result->getChoicesFor($this->opponentSide) === parent::rockChoice())
             return parent::rockChoice();
         return parent::paperChoice();
 
