@@ -17,6 +17,8 @@ class Donel78Player extends Player
 
     public function getChoice()
     {
+        if ($this->result->getNbRound() < 1)
+            return parent::rockChoice();
         $stats = $this->result->getStatsFor($this->opponentSide);
         $paper = $stats["paper"];
         $scissor = $stats["scissors"];
