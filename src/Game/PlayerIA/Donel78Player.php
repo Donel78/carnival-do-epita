@@ -17,6 +17,16 @@ class Donel78Player extends Player
 
     public function getChoice()
     {
+        if ($this->result->getLastScoreFor($this->opponentSide) === 0)
+            return parent::rockChoice();
+        if ($this->result->getLastScoreFor($this->mySide) === 0)
+            return parent::rockChoice();
+        if ($this->result->getChoicesFor($this->opponentSide) === "scissors")
+            return parent::scissorsChoice();
+        if ($this->result->getChoicesFor($this->opponentSide) === "rock")
+            return parent::rockChoice();
+        return parent::paperChoice();
+
         // -------------------------------------    -----------------------------------------------------
         // How to get my Last Choice           ?    $this->result->getLastChoiceFor($this->mySide) -- if 0 (first round)
         // How to get the opponent Last Choice ?    $this->result->getLastChoiceFor($this->opponentSide) -- if 0 (first round)
@@ -40,7 +50,5 @@ class Donel78Player extends Player
         // -------------------------------------    -----------------------------------------------------
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
-        
-        return parent::paperChoice();            
   }
 };
