@@ -17,14 +17,16 @@ class Donel78Player extends Player
 
     public function getChoice()
     {
-        if ($this->result->getLastScoreFor($this->opponentSide) === 0)
-            return parent::rockChoice();
-        if ($this->result->getLastScoreFor($this->mySide) === 0)
-            return parent::rockChoice();
-        if ($this->result->getChoicesFor($this->opponentSide) === parent::paperChoice())
+        $stats = $this->result->getStatsFor($this->opponentSide);
+        $paper = $stats["paper"];
+        $scissor = $stats["scissors"];
+        $rock = $stats["rock"];
+        if ($paper > $scissor && $paper > $rock)
             return parent::scissorsChoice();
-        if ($this->result->getChoicesFor($this->opponentSide) === parent::rockChoice())
+        if ($scissor > $paper && $scissor > $rock)
             return parent::rockChoice();
+        if ($rock > $scissor && $rock > $paper)
+            return parent::paperChoice();
         return parent::paperChoice();
 
         // -------------------------------------    -----------------------------------------------------
